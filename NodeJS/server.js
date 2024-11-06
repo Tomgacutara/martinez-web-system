@@ -6,6 +6,8 @@ const axios = require('axios');
 const app = express();
 const PORT = 3000;
 
+app.use(express.json());
+
 app.use(cors({
     origin: ['http://127.0.0.1:5501', 'http://localhost:5501']
   }));

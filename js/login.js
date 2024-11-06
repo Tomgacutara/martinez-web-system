@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     
                     setTimeout(() => {
-                        window.location.href = "map.html"; 
+                        window.location.href = "../html/map.html"; 
                     }, 1000);
                 })
                 .catch((error) => {

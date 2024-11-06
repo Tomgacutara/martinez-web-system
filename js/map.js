@@ -91,7 +91,7 @@ const displayedLogs = new Set();
 // Fetch logs and handle notifications
 const fetchLogs = async () => {
     try {
-        const response = await fetch('http://localhost:3000/logs');
+        const response = await fetch('https://martinez-web-system.onrender.com/logs');
         if (!response.ok) throw new Error('Failed to fetch logs');
 
         const logs = await response.json();

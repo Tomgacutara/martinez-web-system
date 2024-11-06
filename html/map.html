@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group2 MAP</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; 
+            height: 100vh;
+            padding-top: 50px;
+            position: relative; 
+        }
+
+        nav {
+            margin-top: 5px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: none; 
+            z-index: 10; 
+        }
+
+        .navbar-brand {
+            
+            
+            color: #3e3e3f7e;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            
+        }
+
+        .nav-link {
+            color: #454647;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 5px 10px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #007bff;
+        }
+
+       
+
+        #searchContainer {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 100px;
+            margin-top: 10px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 12px 20px;
+            border: 1px solid #ced4da;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+            outline: none;
+            background-color: #fff;
+        }
+
+        input[type="text"]:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        button {
+            padding: 12px 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #map {
+           
+            width: 98%;
+            padding: 200px;
+            height: 450px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            margin-left: 15px;
+            position: fixed;
+            top: 180px; 
+            left: 0;
+            z-index: 1; 
+        }
+
+        .notifications {
+            width: 350px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .notifications-header {
+            font-size: 1.5rem;
+            padding: 15px;
+            text-align: center;
+            background-color: #007bff;
+            color: white;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .notifications-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .notification-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            transition: background-color 0.3s ease;
+            
+        }
+
+        .notification-item:hover {
+            background-color: #f1f9ff;
+        }
+
+        .notification-email {
+            font-size: 1rem;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .notification-timestamp {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .notification-item:last-child {
+            border-bottom: none;
+        }
+
+        
+        #notificationsDropdown {
+            position: absolute;
+            top: 50px;
+            right: 20px;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 100;
+            padding: 15px;
+            width: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+        }
+        .notification-count {
+        position: absolute;
+        top: 0;
+        right: 230px;
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+        padding: 5px 8px;
+        font-size: 0.8rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 20px; 
+}
+.Logo{
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    
+}
+.Logo img{
+    border-style: solid;
+    border-color: rgba(250, 251, 252, 0.856);
+    border-radius: 50px;
+}
+h3 {
+    color: #333;
+    font-weight: 400;
+    margin-top: 40px;
+    text-align: center;
+     }
+
+
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="Logo">
+            <a href="#" class="navbar-brand">MAP IT</a>
+            <img src="images/logo.jpg" alt="" width="50px">
+
+        </div>
+       
+        <div class="nav-links">
+            <div class="bell-container">
+                <span id="notificationCount" class="notification-count"></span>
+                <button class="bell-button" id="bellBtn" data-count="0">
+
+                    <i class="fa-duotone fa-solid fa-bell"></i>
+                    
+                </button>
+
+                <div class="notifications" id="notificationsDropdown">
+                    <div class="notifications-header">Notifications</div>
+                    <ul class="notifications-list">
+                        <li class="notification-item">
+                            <span class="notification-email"></span>
+                            <span class="notification-timestamp"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <a href="#" class="nav-link">Home</a>
+            <a href="#" class="nav-link">About</a>
+            <a href="#" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    
+    <h3>Search for a Location</h3>
+    <div id="searchContainer">
+        
+        <input type="text" id="search" placeholder="Enter a location" aria-label="Search">
+        <button type="button" id="searchBtn">
+            <i class="fa-duotone fa-solid fa-magnifying-glass"></i>
+        </button>
+    </div>
+
+    <div id="loading" style="display: none; color: #0055ff; margin-bottom: 50px;"></div>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="../js/map.js"></script>
+    
+</body>
+</html>
+
+

@@ -1,0 +1,126 @@
+* body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Login Container Styling */
+.login-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    max-width: 90%;
+    text-align: center;
+}
+
+/* Heading Styling */
+.login-container h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Input Field Styling */
+.input-field {
+    margin-bottom: 20px; /* Spacing between input fields */
+}
+
+.input-field input {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    outline: none;
+    transition: border 0.3s ease;
+    box-sizing: border-box;
+    margin-bottom: 15px; /* Added margin for spacing between inputs */
+}
+
+.input-field input:focus {
+    border: 1px solid #1e90ff;
+    background-color: #fff;
+}
+
+/* Password Wrapper (for eye icon) */
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 40px; /* Adds space for the eye icon */
+}
+
+.eye-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Fix for the eye icon visibility */
+.eye-btn i {
+    font-size: 18px; /* Adjusted icon size */
+}
+
+/* Login Button Styling */
+.loginbtn {
+    width: 100%;
+    padding: 12px;
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 15px; /* Spacing between the button and the "or" text */
+}
+
+.loginbtn:hover {
+    background-color: #1c86ee;
+}
+
+/* Separator and Sign Up Link */
+.separator {
+    margin: 10px 0; /* Spacing around the separator */
+    font-weight: bold;
+}
+
+.signup-link {
+    text-decoration: none;
+    color: #1e90ff;
+    font-weight: bold;
+}
+
+/* Error or Success Message */
+#message {
+    color: #3c61e7;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 20px;
+    }
+
+    .input-field input, .loginbtn {
+        font-size: 16px;
+    }
+}

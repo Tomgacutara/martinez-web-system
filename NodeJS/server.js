@@ -1,6 +1,6 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 const axios = require('axios');
 
 const app = express();
@@ -9,7 +9,14 @@ const PORT = 3000;
 app.use(express.json());
 
 app.use(cors({
-    origin: 'https://tomgacutara.github.io'
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, origin); 
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true // Optional: only if needed for authentication with credentials
 }));
 
 // Login route (original)

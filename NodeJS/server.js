@@ -25,7 +25,10 @@ app.use(cors({
     credentials: true // Optional: only if needed for authentication with credentials
 }));
 
-// Login route (original)
+// Preflight requests handler for all routes
+app.options('*', cors());
+
+
 app.post('/login', (req, res) => {
     const { email, timestamp, message } = req.body;
 

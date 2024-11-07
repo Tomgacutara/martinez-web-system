@@ -71,7 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     setTimeout(() => {
                         window.location.href = "html/map.html"; 
+<<<<<<< HEAD
                     }, 1000);
+=======
+                    }, 5000);
+>>>>>>> ba7674b (Fixed CORS issue and updated login functionality)
                 })
                 .catch((error) => {
                     notification.classList.remove('loading');

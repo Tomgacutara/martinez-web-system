@@ -194,7 +194,7 @@
         .notification-count {
             position: absolute;
             top: 0;
-            right: 230px;
+            right: 260px;
             background-color: red;
             color: white;
             border-radius: 50%;
@@ -245,6 +245,70 @@
             margin-top: 20px;   
 }
 
+/*Media queries*/
+@media (max-width: 480px) {
+    #map {
+        width: 90%;         
+        padding: 100px;     
+        height: 400px;      
+        margin-top: 20px;   
+        left: 5px;          
+        top: 170px;         
+        border-radius: 8px; 
+    }
+
+    #searchContainer {
+        gap: 5px;             
+        margin-bottom: 50px;  
+        margin-top: 5px;      
+        max-width: 90%;       
+    }
+
+    #notificationsDropdown {
+        width: 290px;      
+        right: 5%;        
+        padding: 10px;   
+        max-height: 300px;
+    }
+    #log-out-btn {
+        font-size: 12px; 
+        padding: 8px 16px; 
+    }
+    
+}
+
+@media (max-width: 600px) {
+    #map {
+        width: 90%;         
+        padding: 100px;     
+        height: 400px;      
+        margin-top: 20px;   
+        left: 5px;          
+        top: 170px;         
+        border-radius: 8px; 
+    }
+
+    #searchContainer {
+        gap: 5px;             
+        margin-bottom: 50px;  
+        margin-top: 5px;      
+        max-width: 90%;       
+    }
+
+    #notificationsDropdown {
+        width: 290px;      
+        right: 5%;        
+        padding: 10px;   
+        max-height: 300px;
+    }
+    #log-out-btn {
+        font-size: 12px; 
+        padding: 8px 16px; 
+    }
+    
+    
+}
+
 
 
     </style>
@@ -262,7 +326,6 @@
             <div class="bell-container">
                 <span id="notificationCount" class="notification-count"></span>
                 <button class="bell-button" id="bellBtn" data-count="0">
-
                     <i class="fa-duotone fa-solid fa-bell"></i>
                     
                 </button>
@@ -286,7 +349,7 @@
             </div>
             <a href="#" class="nav-link">Home</a>
             <a href="#" class="nav-link">About</a>
-            <a href="#" class="nav-link">Contact</a>
+            <a href="#" class="nav-link"><button id="log-out-btn">Log out</button></a>
         </div>
     </nav>
 

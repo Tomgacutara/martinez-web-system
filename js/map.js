@@ -187,6 +187,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     window.clearNotifications = clearNotifications;
 });
+//Log out function
+document.getElementById("log-out-btn").addEventListener("click", function(event) {
+    event.preventDefault();
+    
+    let confirmLogout = window.confirm("Are you sure you want to log out?");
+    
+    
+    if (confirmLogout) {
+        window.location.href = "../index.html";
+    }
+});
 
 
 

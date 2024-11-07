@@ -8,6 +8,12 @@ const PORT = 3000;
 
 app.use(express.json());
 
+const allowedOrigins = [
+    'https://tomgacutara.github.io',
+    'http://127.0.0.1:5501',
+    'http://localhost:5501'
+];
+
 app.use(cors({
     origin: function (origin, callback) {
         if (!origin || allowedOrigins.includes(origin)) {

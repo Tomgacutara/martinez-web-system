@@ -165,6 +165,32 @@ document.getElementById('bellBtn').addEventListener('click', () => {
     notificationElement.classList.remove('notification-active');  
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    function clearNotifications() {
+        const notificationsList = document.querySelector('.notifications-list');
+        const clearButton = document.querySelector('.clear-btn');
+        while (notificationsList.firstChild) {
+            notificationsList.removeChild(notificationsList.firstChild);
+        }
+        const emptyMessage = document.createElement('li');
+        emptyMessage.textContent = 'No notifications to display.';
+        notificationsList.appendChild(emptyMessage);
+        emptyMessage.classList.add('empty-message');
+        if (notificationsList.children.length <= 1) {  
+            clearButton.disabled = true;  
+            clearButton.style.visibility = 'hidden';  
+        } else {
+            clearButton.disabled = false;  
+            clearButton.style.visibility = 'visible';  
+        }
+
+    }
+    window.clearNotifications = clearNotifications;
+});
+
+
+
+
 // Initial fetch for logs on page load
 fetchLogs();
 

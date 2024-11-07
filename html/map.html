@@ -192,37 +192,58 @@
             display: none;
         }
         .notification-count {
-        position: absolute;
-        top: 0;
-        right: 230px;
-        background-color: red;
-        color: white;
-        border-radius: 50%;
-        padding: 5px 8px;
-        font-size: 0.8rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-width: 20px; 
+            position: absolute;
+            top: 0;
+            right: 230px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 5px 8px;
+            font-size: 0.8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 20px; 
 }
-.Logo{
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    align-items: center;
+        .Logo{
+             display: flex;
+             gap: 2rem;
+             justify-content: center;
+             align-items: center;
     
+            }
+        .Logo img{
+             border-style: solid;
+             border-color: rgba(250, 251, 252, 0.856);
+             border-radius: 50px;
+                }
+        h3 {
+             color: #333;
+             font-weight: 400;
+             margin-top: 40px;
+             text-align: center;
+            }
+        
+        .clear-btn {
+             font-size: 14px; 
+             padding: 8px 16px; 
+             background-color: #007BFF; 
+             color: white; 
+             border: none;
+             border-radius: 4px; 
+             cursor: pointer; 
+             transition: background-color 0.3s ease; 
+            }
+        .btn-clearNotif{
+            list-style-type: none;
+        }
+        .empty-message {
+            text-align: center; 
+            padding: 10px;     
+            color: #3861d1;        
+            font-style: italic; 
+            margin-top: 20px;   
 }
-.Logo img{
-    border-style: solid;
-    border-color: rgba(250, 251, 252, 0.856);
-    border-radius: 50px;
-}
-h3 {
-    color: #333;
-    font-weight: 400;
-    margin-top: 40px;
-    text-align: center;
-     }
 
 
 
@@ -252,6 +273,13 @@ h3 {
                         <li class="notification-item">
                             <span class="notification-email"></span>
                             <span class="notification-timestamp"></span>
+                        </li>
+                    </ul>
+                    <ul class="btn-clearNotif">
+                        <li>
+                            <li class="clear-Notif-btn">
+                                <button class="clear-btn" onclick="clearNotifications()">Clear notification</button> 
+                            </li>
                         </li>
                     </ul>
                 </div>

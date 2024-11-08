@@ -155,14 +155,23 @@ function updateNotificationDisplay() {
 
 // Reset notification count when bell is clicked but keep notifications in the list
 document.getElementById('bellBtn').addEventListener('click', () => {
-    notificationCount = 0; 
-    updateNotificationDisplay();
-    
-    const notificationElement = document.getElementById('notificationCount');
-    notificationElement.style.backgroundColor = 'transparent';
-    notificationElement.textContent = "";
-    notificationElement.removeAttribute('aria-label');  
-    notificationElement.classList.remove('notification-active');  
+    const notificationElement = document.querySelector('#notificationCount');
+    console.log(notificationElement);
+
+    if (notificationElement) {
+        notificationCount = 0; 
+        updateNotificationDisplay();
+
+        notificationElement.style.backgroundColor = 'transparent';
+        notificationElement.style.display = 'none';
+        notificationElement.removeAttribute('aria-label');  
+        notificationElement.classList.remove('notification-active');
+    } else {
+        console.error("Notification element not found");
+    }
+    setTimeout(() => {
+        console.log('Notification Count after clearing:', notificationElement.textContent);
+    }, 100);
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -185,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
     }
-    window.clearNotifications = clearNotifications;
+    window.clearNotifications = clearNotifications; 
 });
 //Log out function
 document.getElementById("log-out-btn").addEventListener("click", function(event) {

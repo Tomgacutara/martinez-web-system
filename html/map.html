@@ -194,7 +194,7 @@
         .notification-count {
             position: absolute;
             top: 0;
-            right: 260px;
+            right: 0px;
             background-color: red;
             color: white;
             border-radius: 50%;
@@ -243,10 +243,41 @@
             color: #3861d1;        
             font-style: italic; 
             margin-top: 20px;   
-}
+        }
+        .bell-container{
+            position: relative;
+
+        }
+
+
 
 /*Media queries*/
 @media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .bell-button {
+        font-size: 18px; /* Adjust icon size for mobile */
+    }
+
+    #log-out-btn {
+        font-size: 14px; /* Adjust font size for mobile */
+        padding: 8px 16px;
+    }
+
+    .Logo img {
+        width: 40px; /* Smaller logo for mobile */
+    }
     #map {
         width: 90%;         
         padding: 100px;     
@@ -278,6 +309,88 @@
 }
 
 @media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .bell-button {
+        font-size: 18px; /* Adjust icon size for mobile */
+    }
+
+    #log-out-btn {
+        font-size: 14px; /* Adjust font size for mobile */
+        padding: 8px 16px;
+    }
+
+    .Logo img {
+        width: 40px; /* Smaller logo for mobile */
+    }
+    #map {
+        width: 90%;         
+        padding: 100px;     
+        height: 400px;      
+        margin-top: 20px;   
+        left: 5px;          
+        top: 170px;         
+        border-radius: 8px; 
+    }
+
+    #searchContainer {
+        gap: 5px;             
+        margin-bottom: 50px;  
+        margin-top: 5px;      
+        max-width: 90%;       
+    }
+
+    #notificationsDropdown {
+        width: 290px;      
+        right: 5%;        
+        padding: 10px;   
+        max-height: 300px;
+    }
+    #log-out-btn {
+        font-size: 12px; 
+        padding: 8px 16px; 
+    }
+    
+    
+}
+
+@media (max-width: 1080px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .bell-button {
+        font-size: 18px; /* Adjust icon size for mobile */
+    }
+
+    #log-out-btn {
+        font-size: 14px; /* Adjust font size for mobile */
+        padding: 8px 16px;
+    }
+
+    .Logo img {
+        width: 40px; /* Smaller logo for mobile */
+    }
     #map {
         width: 90%;         
         padding: 100px;     
